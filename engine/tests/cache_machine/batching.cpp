@@ -49,7 +49,8 @@ TEST_F(Batching, SimpleQuery) {
 	auto address = Address::TCP("127.0.0.1", 8089, 0);
 	contextNodes.push_back(Node(address));
 	uint32_t ctxToken = 123;
-	auto queryContext = std::make_shared<Context>(ctxToken, contextNodes, contextNodes[0], "");;
+	std::map<std::string, std::string> config_options;
+	auto queryContext = std::make_shared<Context>(ctxToken, contextNodes, contextNodes[0], "", config_options);
 
 	auto n_batches = 5;
 	std::shared_ptr<ral::io::parquet_parser> parser;
@@ -92,7 +93,8 @@ TEST_F(Batching, BindableQuery) {
 	auto address = Address::TCP("127.0.0.1", 8089, 0);
 	contextNodes.push_back(Node(address));
 	uint32_t ctxToken = 123;
-	auto queryContext = std::make_shared<Context>(ctxToken, contextNodes, contextNodes[0], "");;
+	std::map<std::string, std::string> config_options;
+	auto queryContext = std::make_shared<Context>(ctxToken, contextNodes, contextNodes[0], "", config_options);
 
 	auto n_batches = 5;
 	std::shared_ptr<ral::io::parquet_parser> parser;
@@ -125,7 +127,8 @@ TEST_F(Batching, SortSamplePartitionTest) {
 	auto address = Address::TCP("127.0.0.1", 8089, 0);
 	contextNodes.push_back(Node(address));
 	uint32_t ctxToken = 123;
-	auto queryContext = std::make_shared<Context>(ctxToken, contextNodes, contextNodes[0], "");;
+	std::map<std::string, std::string> config_options;
+	auto queryContext = std::make_shared<Context>(ctxToken, contextNodes, contextNodes[0], "", config_options);
 
 	auto n_batches = 5;
 	std::shared_ptr<ral::io::parquet_parser> parser;
